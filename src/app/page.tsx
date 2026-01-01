@@ -8,10 +8,10 @@ export default function Home() {
     <Section>
       <div className="space-y-6">
         <div className="flex flex-col gap-2 md:gap-0 md:flex-row-reverse">
-          <div className="flex-1 flex justify-center items-center relative">
-            <div className="w-52 h-52 md:w-72 md:h-72 rounded-full border-4 p-2 border-purple-950 border-l-0 border-r-0 animate-spin rotate-12">
-              <div className="w-full h-full rounded-full border-2 p-2 border-slate-950 border-t-4 border-b-4 rotate-45">
-                <div className="w-full h-full rounded-full border-2 border-purple-950 border-t-0 border-b-0 rotate-6" />
+          <div className="flex-1 flex justify-center items-center relative overflow-hidden">
+            <div className="w-52 h-52 md:w-72 md:h-72 rounded-full border-4 border-double p-2 border-purple-950 border-l-0 border-r-0 animate-spin rotate-12">
+              <div className="w-full h-full rounded-full border-8 border-double p-2 border-slate-950 border-t-2 border-b-2 rotate-45">
+                <div className="w-full h-full rounded-full border-8 border-purple-950 border-t-0 border-b-0 rotate-6" />
               </div>
             </div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-4 overflow-hidden rounded-full w-40 h-40 md:w-60 md:h-60 mx-auto">
