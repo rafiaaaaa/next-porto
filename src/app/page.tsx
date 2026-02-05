@@ -1,8 +1,11 @@
 import { Section } from "@/components/Section";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { themeColors } from "@/lib/theme-colors";
 import { cn } from "@/lib/utils";
+import { Download, Linkedin } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const techStacks = [
   {
@@ -74,7 +77,7 @@ const techStacks = [
 
 export default function Home() {
   return (
-    <Section className="min-h-[90vh] flex items-center">
+    <Section className="min-h-[90vh] md:flex items-center">
       <div className="space-y-6">
         <div className="flex flex-col gap-2 md:gap-0 md:flex-row-reverse">
           <div className="flex-1 flex justify-center items-center relative overflow-visible active:scale-110 cursor-pointer transition-all duration-200">
@@ -93,12 +96,12 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="text-center mt-10 md:mt-0 md:text-left flex-1 flex flex-col justify-center relative overflow-visible">
+          <div className="text-center mt-8 md:mt-0 md:text-left flex-1 flex flex-col justify-center relative overflow-visible space-y-4">
             <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
               Hi, I’m Rafi Akmal{" "}
               <div className="animate-bounce inline-block">👋</div>
             </h1>
-            <p className="mt-2 text-muted-foreground tracking-tighter">
+            <p className="text-muted-foreground tracking-tighter">
               I’m a <span className="font-bold">Full Stack Developer</span>{" "}
               based in
               <span className="font-bold">
@@ -108,7 +111,7 @@ export default function Home() {
               . I have a passion for creating beautiful and functional web
               applications.
             </p>
-            <div className="flex flex-wrap gap-2 mt-4 justify-center md:justify-start">
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
               {techStacks.map((stack, index) => {
                 const style =
                   themeColors[stack.color as keyof typeof themeColors];
@@ -135,6 +138,31 @@ export default function Home() {
                   </Badge>
                 );
               })}
+            </div>
+            <div className="flex gap-2 justify-center md:justify-start mt-5">
+              <Link
+                href={"https://www.linkedin.com/in/rafia24"}
+                target="_blank"
+              >
+                <Button
+                  variant={"default"}
+                  className="bg-sky-400 text-white p-2 shadow-lg shadow-sky-400/30 hover:shadow-sky-400/70 hover:scale-105 cursor-pointer"
+                >
+                  <Image
+                    src={"/assets/linkedin-white.png"}
+                    width={24}
+                    height={24}
+                    alt="linkedin"
+                  />
+                  Connect on LinkedIn
+                </Button>
+              </Link>
+              <a href="/assets/cv/cv_rafi_english.pdf" download>
+                <Button className="bg-emerald-400 text-white shadow-lg shadow-emerald-400/30 hover:shadow-emerald-400/70 hover:scale-105 cursor-pointer">
+                  <Download className="h-4 w-4" />
+                  Download CV
+                </Button>
+              </a>
             </div>
           </div>
         </div>

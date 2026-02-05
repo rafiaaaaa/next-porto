@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen max-h-screen overflow-hidden bg-background text-foreground antialiased max-w-[100vw] overflow-x-hidden transition-all">
+      <body className="min-h-screen max-h-screen bg-background text-foreground antialiased max-w-[100vw] overflow-x-hidden transition-all">
         <ThemeProvider attribute="class" defaultTheme="system">
           <Navbar />
           <main>{children}</main>
