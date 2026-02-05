@@ -78,18 +78,18 @@ export default function Home() {
     <Section>
       <div className="space-y-6">
         <div className="flex flex-col gap-2 md:gap-0 md:flex-row-reverse">
-          <div className="flex-1 flex justify-center items-center relative overflow-visible">
-            <div className="w-52 h-52 md:w-72 md:h-72 rounded-full border-8 border-double  border-purple-400 animate-spin bg-slate-950 border-l-0 border-r-0  rotate-12 p-1 shadow-[0_0_10px_#000000,0_0_80px_#650192,0_0_40px_#000000] ">
-              <div className="w-full h-full rounded-full border-8 border-double p-2 border-purple-600 border-t-2 border-b-2 rotate-45">
+          <div className="flex-1 flex justify-center items-center relative overflow-visible active:scale-110 cursor-pointer transition-all duration-200">
+            <div className="w-56 h-56 md:w-70 md:h-70 rounded-full border-8   border-purple-300 animate-spin hover:animate-none bg-slate-950 border-l-0 border-r-0  rotate-12 shadow-[0_0_10px_#000000,0_0_80px_#650192,0_0_40px_#000000] ">
+              <div className="w-full h-full rounded-full border-8 border-purple-600 border-t-2 border-b-2 rotate-45">
                 <div className="w-full h-full rounded-full border-8 border-white border-t-0 border-b-0 rotate-6" />
               </div>
             </div>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-4 overflow-hidden rounded-full w-40 h-40 md:w-60 md:h-60 mx-auto">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-4 overflow-hidden rounded-full w-52 h-52 md:w-64 md:h-64 mx-auto flex items-center justify-center">
               <Image
-                className="h-40 md:h-60 object-cover"
-                src={"/assets/4.png"}
+                className="h-40 md:h-60 object-cover scale-150 md:scale-125"
+                src={"/assets/profile_far.jpg"}
                 width={500}
-                height={200}
+                height={500}
                 alt="profile_photos"
               />
             </div>
