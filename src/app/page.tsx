@@ -77,7 +77,7 @@ const techStacks = [
 
 export default function Home() {
   return (
-    <Section className="min-h-[90vh] md:flex items-center">
+    <Section className="md:min-h-[90vh] md:flex items-center">
       <div className="space-y-6">
         <div className="flex flex-col gap-2 md:gap-0 md:flex-row-reverse">
           <div className="flex-1 flex justify-center items-center relative overflow-visible active:scale-110 cursor-pointer transition-all duration-200">
@@ -93,6 +93,7 @@ export default function Home() {
                 width={500}
                 height={500}
                 alt="profile_photos"
+                loading="eager"
               />
             </div>
           </div>
@@ -158,7 +159,7 @@ export default function Home() {
                         >
                           <span className="flex items-center justify-center w-5 h-5 bg-white/80 rounded-full overflow-hidden">
                             <Image
-                              className="block object-contain"
+                              className="block object-contain w-auto"
                               alt={stack.name}
                               src={`/assets/tech-stacks/${stack.icon}`}
                               width={16}
