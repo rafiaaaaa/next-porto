@@ -1,11 +1,10 @@
 import { Section } from "@/components/Section";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { themeColors } from "@/lib/theme-colors";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-export const techStacks = [
+const techStacks = [
   {
     name: "HTML",
     color: "orange",
@@ -71,7 +70,7 @@ export const techStacks = [
     color: "violet",
     icon: "prisma.png",
   },
-] as const;
+];
 
 export default function Home() {
   return (
@@ -79,7 +78,7 @@ export default function Home() {
       <div className="space-y-6">
         <div className="flex flex-col gap-2 md:gap-0 md:flex-row-reverse">
           <div className="flex-1 flex justify-center items-center relative overflow-visible active:scale-110 cursor-pointer transition-all duration-200">
-            <div className="w-56 h-56 md:w-70 md:h-70 rounded-full border-8   border-purple-300 animate-spin hover:animate-none bg-slate-950 border-l-0 border-r-0  rotate-12 shadow-[0_0_10px_#000000,0_0_80px_#650192,0_0_40px_#000000] ">
+            <div className="w-56 h-56 md:w-70 md:h-70 rounded-full border-8 border-purple-300 animate-spin hover:animate-none bg-slate-950 border-l-0 border-r-0  rotate-12 shadow-[0_0_10px_#000000,0_0_80px_#650192,0_0_40px_#000000] ">
               <div className="w-full h-full rounded-full border-8 border-purple-600 border-t-2 border-b-2 rotate-45">
                 <div className="w-full h-full rounded-full border-8 border-white border-t-0 border-b-0 rotate-6" />
               </div>
@@ -111,7 +110,8 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-2 mt-4 justify-center md:justify-start">
               {techStacks.map((stack, index) => {
-                const style = themeColors[stack.color];
+                const style =
+                  themeColors[stack.color as keyof typeof themeColors];
                 return (
                   <Badge
                     key={index}
@@ -122,7 +122,7 @@ export default function Home() {
                       style.shadow,
                     )}
                   >
-                    <span className="flex items-center justify-center w-5 h-5 bg-white/80 dark:bg-black/40 rounded-full overflow-hidden">
+                    <span className="flex items-center justify-center w-5 h-5 bg-white/80 rounded-full overflow-hidden">
                       <Image
                         className="block object-contain"
                         alt={stack.name}

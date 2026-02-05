@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Rafi Akmal | Full Stack Developer",
@@ -15,10 +16,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen max-h-screen overflow-hidden bg-background text-foreground antialiased max-w-[100vw] overflow-x-hidden">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+      <body className="min-h-screen max-h-screen overflow-hidden bg-background text-foreground antialiased max-w-[100vw] overflow-x-hidden transition-all">
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

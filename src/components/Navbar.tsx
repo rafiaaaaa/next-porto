@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "next-themes";
 
 const links = [
   {
@@ -25,6 +26,7 @@ const links = [
 ];
 
 export function Navbar() {
+  const { theme, setTheme } = useTheme();
   // const [open, setOpen] = useState(false);
   // const drawerRef = useRef<HTMLDivElement | null>(null);
 
@@ -54,7 +56,7 @@ export function Navbar() {
         </Link> */}
 
         {/* Desktop Menu View */}
-        <nav className="md:flex items-center gap-6 hidden">
+        <nav className="md:flex items-center gap-6">
           {/* {links.map((link) => {
             return (
               <Link href={link.href} key={link.title}>
@@ -62,6 +64,19 @@ export function Navbar() {
               </Link>
             );
           })} */}
+          <div className="fixed rounded-full border p-1 dark:border-yellow-500 border-blue-500 top-5 right-5 md:right-10">
+            {theme === "dark" ? (
+              <Sun
+                onClick={() => setTheme("light")}
+                className="cursor-pointer clear-start text-yellow-500"
+              />
+            ) : (
+              <Moon
+                onClick={() => setTheme("dark")}
+                className="cursor-pointer text-blue-500"
+              />
+            )}
+          </div>
         </nav>
 
         {/* Mobile Menu VIew*/}
