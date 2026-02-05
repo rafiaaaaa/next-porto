@@ -47,14 +47,14 @@ export function Navbar() {
     };
   }, [open]);
   return (
-    <header className="border-b">
+    <header className="border-b sticky top-0 left-0 w-full z-99 bg-background shadow-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8 relative">
         <Link href="/" className="font-semibold">
-          Rafi Akmal
+          <b>&lt;Rafia /&gt;</b>
         </Link>
 
         {/* Desktop Menu View */}
-        <nav className="md:flex items-center gap-4 hidden">
+        <nav className="md:flex items-center gap-6 hidden">
           {links.map((link) => {
             return (
               <Link href={link.href} key={link.title}>
@@ -83,7 +83,7 @@ export function Navbar() {
                 <div className="bg-slate-200 w-full">
                   <div className="flex justify-between items-center px-6 py-2">
                     <Link href={""} className="font-bold">
-                      R
+                      <b>&lt;Rafia /&gt;</b>
                     </Link>
 
                     <Button
