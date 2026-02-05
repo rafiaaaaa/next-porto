@@ -27,6 +27,13 @@ const links = [
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    console.log("test");
+  }, []);
+
   // const [open, setOpen] = useState(false);
   // const drawerRef = useRef<HTMLDivElement | null>(null);
 
@@ -48,6 +55,7 @@ export function Navbar() {
   //     document.removeEventListener("click", handleClickOutside);
   //   };
   // }, [open]);
+  if (!mounted) return null;
   return (
     <header className="fixed top-0 left-0 w-full z-99">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-end px-4 sm:px-6 lg:px-8 relative">
