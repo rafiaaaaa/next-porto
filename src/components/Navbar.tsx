@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
@@ -25,55 +25,55 @@ const links = [
 ];
 
 export function Navbar() {
-  const [open, setOpen] = useState(false);
-  const drawerRef = useRef<HTMLDivElement | null>(null);
+  // const [open, setOpen] = useState(false);
+  // const drawerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (!open) return;
+  // useEffect(() => {
+  //   if (!open) return;
 
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        drawerRef.current &&
-        !drawerRef.current.contains(event.target as Node)
-      ) {
-        setOpen(false);
-      }
-    };
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (
+  //       drawerRef.current &&
+  //       !drawerRef.current.contains(event.target as Node)
+  //     ) {
+  //       setOpen(false);
+  //     }
+  //   };
 
-    document.addEventListener("click", handleClickOutside);
+  //   document.addEventListener("click", handleClickOutside);
 
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [open]);
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutside);
+  //   };
+  // }, [open]);
   return (
-    <header className="border-b sticky top-0 left-0 w-full z-99 bg-background shadow-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8 relative">
-        <Link href="/" className="font-semibold">
+    <header className="fixed top-0 left-0 w-full z-99">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-end px-4 sm:px-6 lg:px-8 relative">
+        {/* <Link href="/" className="font-semibold">
           <b>&lt;Rafia /&gt;</b>
-        </Link>
+        </Link> */}
 
         {/* Desktop Menu View */}
         <nav className="md:flex items-center gap-6 hidden">
-          {links.map((link) => {
+          {/* {links.map((link) => {
             return (
               <Link href={link.href} key={link.title}>
                 {link.title}
               </Link>
             );
-          })}
+          })} */}
         </nav>
 
         {/* Mobile Menu VIew*/}
-        <Button
+        {/* <Button
           className="flex items-center gap-4 md:hidden"
           onClick={() => setOpen((prev) => !prev)}
         >
           <Menu className="cursor-pointer" />
-        </Button>
+        </Button> */}
 
         {/* Mobile Drawer */}
-        {open && (
+        {/* {open && (
           <>
             <nav
               ref={drawerRef}
@@ -111,7 +111,7 @@ export function Navbar() {
               </div>
             </nav>
           </>
-        )}
+        )} */}
       </div>
     </header>
   );

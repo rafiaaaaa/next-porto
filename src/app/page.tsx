@@ -75,7 +75,7 @@ export const techStacks = [
 
 export default function Home() {
   return (
-    <Section>
+    <Section className="min-h-[90vh] flex items-center">
       <div className="space-y-6">
         <div className="flex flex-col gap-2 md:gap-0 md:flex-row-reverse">
           <div className="flex-1 flex justify-center items-center relative overflow-visible active:scale-110 cursor-pointer transition-all duration-200">
@@ -139,7 +139,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex gap-2">
+        {/* <div className="flex gap-2">
           <Badge>Next.js</Badge>
           <Badge variant="outline">SSG</Badge>
           <Badge variant="outline">SSR</Badge>
@@ -165,7 +165,7 @@ export default function Home() {
               Clear explanation of SSG, SSR, CSR, and ISR usage.
             </CardContent>
           </Card>
-        </div>
+        </div> */}
       </div>
     </Section>
   );

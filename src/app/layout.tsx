@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-background text-foreground antialiased max-w-[100vw] overflow-x-hidden">
+      <body className="min-h-screen max-h-screen overflow-hidden bg-background text-foreground antialiased max-w-[100vw] overflow-x-hidden">
         <Navbar />
         <main>{children}</main>
         <Footer />
