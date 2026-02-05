@@ -123,3 +123,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  animation: scroll 18s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

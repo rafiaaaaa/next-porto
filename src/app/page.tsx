@@ -96,7 +96,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="text-center mt-8 md:mt-0 md:text-left flex-1 flex flex-col justify-center relative overflow-visible space-y-4">
+          <div className="text-center mt-8 md:mt-0 md:text-left flex-1 flex flex-col justify-center relative space-y-4">
             <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
               Hi, I’m Rafi Akmal{" "}
               <div className="animate-bounce inline-block">👋</div>
@@ -111,7 +111,7 @@ export default function Home() {
               . I have a passion for creating beautiful and functional web
               applications.
             </p>
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+            <div className="hidden md:flex flex-wrap gap-2 justify-center md:justify-start">
               {techStacks.map((stack, index) => {
                 const style =
                   themeColors[stack.color as keyof typeof themeColors];
@@ -139,6 +139,40 @@ export default function Home() {
                 );
               })}
             </div>
+            <div className="carousel md:hidden">
+              <div className="track w-max">
+                <div className="flex gap-2">
+                  {[...techStacks, ...techStacks].map((stack, index) => {
+                    const style =
+                      themeColors[stack.color as keyof typeof themeColors];
+                    return (
+                      <div key={index} className="">
+                        <Badge
+                          key={index}
+                          className={cn(
+                            `px-3 shadow-xl text-white cursor-pointer transition-all duration-75 hover:scale-110 tracking-wide flex items-center justify-center gap-2 md:py-1`,
+                            style.bg,
+                            style.text,
+                            style.shadow,
+                          )}
+                        >
+                          <span className="flex items-center justify-center w-5 h-5 bg-white/80 rounded-full overflow-hidden">
+                            <Image
+                              className="block object-contain"
+                              alt={stack.name}
+                              src={`/assets/tech-stacks/${stack.icon}`}
+                              width={16}
+                              height={16}
+                            />
+                          </span>
+                          <span className="font-semibold">{stack.name}</span>
+                        </Badge>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
             <div className="flex gap-2 justify-center md:justify-start mt-5">
               <Link
                 href={"https://www.linkedin.com/in/rafia24"}
@@ -146,7 +180,7 @@ export default function Home() {
               >
                 <Button
                   variant={"default"}
-                  className="bg-sky-400 text-white p-2 shadow-lg shadow-sky-400/30 hover:shadow-sky-400/70 hover:scale-105 cursor-pointer"
+                  className="bg-sky-400 text-white p-2 shadow-lg shadow-sky-400/30 hover:shadow-sky-400/70 hover:scale-105 cursor-pointer text-xs md:text-sm"
                 >
                   <Image
                     src={"/assets/linkedin-white.png"}
@@ -158,7 +192,7 @@ export default function Home() {
                 </Button>
               </Link>
               <a href="/assets/cv/cv_rafi_english.pdf" download>
-                <Button className="bg-emerald-400 text-white shadow-lg shadow-emerald-400/30 hover:shadow-emerald-400/70 hover:scale-105 cursor-pointer">
+                <Button className="bg-emerald-400 text-xs md:text-sm text-white shadow-lg shadow-emerald-400/30 hover:shadow-emerald-400/70 hover:scale-105 cursor-pointer">
                   <Download className="h-4 w-4" />
                   Download CV
                 </Button>
