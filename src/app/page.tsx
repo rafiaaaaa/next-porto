@@ -215,7 +215,7 @@ export default function Home() {
               >
                 <Button
                   variant={"default"}
-                  className="bg-sky-400 text-white p-2 shadow-lg shadow-sky-400/30 hover:shadow-sky-400/70 hover:scale-105 cursor-pointer text-xs md:text-sm"
+                  className="bg-sky-600 text-white p-2 shadow-lg shadow-sky-400/30 font-bold md:font-semibold hover:shadow-sky-400/70 hover:scale-105 cursor-pointer text-xs md:text-sm"
                 >
                   <Image
                     src={"/assets/linkedin-white.png"}
@@ -227,7 +227,7 @@ export default function Home() {
                 </Button>
               </Link>
               <a href="/assets/cv/cv_rafi_english.pdf" download>
-                <Button className="bg-emerald-400 text-xs md:text-sm text-white shadow-lg shadow-emerald-400/30 hover:shadow-emerald-400/70 hover:scale-105 cursor-pointer">
+                <Button className="bg-emerald-500 text-xs md:text-sm font-bold md:font-semibold text-white shadow-lg shadow-emerald-400/30 hover:shadow-emerald-400/70 hover:scale-105 cursor-pointer">
                   <Download className="h-4 w-4" />
                   Download CV
                 </Button>
