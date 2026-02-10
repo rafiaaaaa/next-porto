@@ -250,7 +250,7 @@ export default function Home() {
                       return (
                         <div key={index} className="flex items-center">
                           <Image
-                            className="block object-contain w-auto p-2 drop-shadow-[0_0px_12px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_0px_2px_rgba(255,255,255,1)]"
+                            className="block object-contain w-auto p-2 drop-shadow-[0_0px_12px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_0px_1.5px_rgba(255,255,255,1)]"
                             alt={stack.name}
                             src={`/assets/tech-stacks/${stack.icon}`}
                             width={48}
