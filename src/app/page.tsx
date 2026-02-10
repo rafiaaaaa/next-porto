@@ -140,75 +140,28 @@ export default function Home() {
                 );
               })}
             </div>
-            <div className="carousel md:hidden">
-              <div className="track w-max">
-                <div className="flex gap-2">
-                  {[...techStacks, ...techStacks].map((stack, index) => {
-                    const style =
-                      themeColors[stack.color as keyof typeof themeColors];
-                    return (
-                      <div key={index} className="">
-                        <Badge
-                          key={index}
-                          className={cn(
-                            `px-3 shadow-xl text-white cursor-pointer transition-all duration-75 hover:scale-110 tracking-wide flex items-center justify-center gap-2 md:py-1`,
-                            style.bg,
-                            style.text,
-                            style.shadow,
-                          )}
-                        >
-                          <span className="flex items-center justify-center w-5 h-5 bg-white/80 rounded-full overflow-hidden">
-                            <Image
-                              className="block object-contain w-auto"
-                              alt={stack.name}
-                              src={`/assets/tech-stacks/${stack.icon}`}
-                              width={16}
-                              height={16}
-                            />
-                          </span>
-                          <span className="font-semibold">{stack.name}</span>
-                        </Badge>
-                      </div>
-                    );
-                  })}
+            <div className="relative">
+              <div className="carousel md:hidden">
+                <div className="track w-max">
+                  <div className="flex gap-4">
+                    {[...techStacks, ...techStacks].map((stack, index) => {
+                      return (
+                        <div key={index} className="flex items-center">
+                          <Image
+                            className="block object-contain w-auto p-2 drop-shadow-[0_0px_12px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_0px_2px_rgba(255,255,255,1)]"
+                            alt={stack.name}
+                            src={`/assets/tech-stacks/${stack.icon}`}
+                            width={48}
+                            height={48}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="carousel md:hidden">
-              <div className="track-left w-max">
-                <div className="flex gap-2">
-                  {[...techStacks, ...techStacks].map((stack, index) => {
-                    const style =
-                      themeColors[stack.color as keyof typeof themeColors];
-                    return (
-                      <div key={index} className="">
-                        <Badge
-                          key={index}
-                          className={cn(
-                            `px-3 shadow-xl text-white cursor-pointer transition-all duration-75 hover:scale-110 tracking-wide flex items-center justify-center gap-2 md:py-1`,
-                            style.bg,
-                            style.text,
-                            style.shadow,
-                          )}
-                        >
-                          <span className="flex items-center justify-center w-5 h-5 bg-white/80 rounded-full overflow-hidden">
-                            <Image
-                              className="block object-contain w-auto"
-                              alt={stack.name}
-                              src={`/assets/tech-stacks/${stack.icon}`}
-                              width={16}
-                              height={16}
-                            />
-                          </span>
-                          <span className="font-semibold">{stack.name}</span>
-                        </Badge>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-            <div className="flex gap-2 justify-center md:justify-start mt-5">
+            <div className="flex gap-2 justify-center md:justify-start md:mt-5">
               <Link
                 href={"https://www.linkedin.com/in/rafia24"}
                 target="_blank"
