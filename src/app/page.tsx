@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { themeColors } from "@/lib/theme-colors";
 import { cn } from "@/lib/utils";
-import { Download, Linkedin } from "lucide-react";
+import { Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +15,7 @@ const techStacks = [
   },
   {
     name: "CSS",
-    color: "blue",
+    color: "violet",
     icon: "css.png",
   },
   {
@@ -64,14 +64,14 @@ const techStacks = [
     icon: "nextjs.png",
   },
   {
-    name: "Supabase",
+    name: "MongoDB",
     color: "emerald",
-    icon: "supabase.png",
+    icon: "mongodb.png",
   },
   {
-    name: "Prisma",
-    color: "violet",
-    icon: "prisma.png",
+    name: "PostgreSQL",
+    color: "blue",
+    icon: "postgresql.png",
   },
 ];
 
