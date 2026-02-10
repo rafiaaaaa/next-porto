@@ -1,3 +1,5 @@
+"use client";
+
 import { Section } from "@/components/Section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -6,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const techStacks = [
   {
@@ -75,15 +78,114 @@ const techStacks = [
   },
 ];
 
+const ringStyles = [
+  {
+    name: "violet",
+    outer: "border-purple-300 border-l-0 border-r-0 bg-slate-950",
+    middle: "border-purple-600 border-t-2 border-b-2",
+    inner: "border-white border-t-0 border-b-0",
+    shadow:
+      "shadow-[0_0_10px_#000000,0_0_80px_#650192,0_0_40px_#000000] dark:shadow-[0_0_20px_#ffffff,0_0_90px_#8f2cff]",
+  },
+
+  {
+    name: "blue",
+    outer: "border-sky-300 border-l-0 border-r-0 bg-slate-950",
+    middle: "border-sky-600 border-t-2 border-b-2",
+    inner: "border-white border-t-0 border-b-0",
+    shadow:
+      "shadow-[0_0_80px_rgba(14,165,233,0.6),0_0_40px_#000000] dark:shadow-[0_0_18px_#ffffff,0_0_90px_#0ea5e9]",
+  },
+  {
+    name: "orange",
+    outer: "border-orange-300 border-l-0 border-r-0 bg-slate-950",
+    middle: "border-orange-600 border-t-2 border-b-2",
+    inner: "border-white border-t-0 border-b-0",
+    shadow:
+      "shadow-[0_0_80px_rgba(249,115,22,0.6),0_0_40px_#000000] dark:shadow-[0_0_18px_#ffffff,0_0_90px_#f3ebdd]",
+  },
+  {
+    name: "emerald",
+    outer: "border-emerald-300 border-l-0 border-r-0 bg-slate-950",
+    middle: "border-emerald-600 border-t-2 border-b-2",
+    inner: "border-white border-t-0 border-b-0",
+    shadow:
+      "shadow-[0_0_80px_rgba(16,185,129,0.6),0_0_40px_#000000] dark:shadow-[0_0_18px_#ffffff,0_0_90px_#10b981]",
+  },
+  {
+    name: "red",
+    outer: "border-red-300 border-l-0 border-r-0 bg-slate-950",
+    middle: "border-red-600 border-t-2 border-b-2",
+    inner: "border-white border-t-0 border-b-0",
+    shadow:
+      "shadow-[0_0_80px_rgba(239,68,68,0.6),0_0_40px_#000000] dark:shadow-[0_0_18px_#ffffff,0_0_90px_#efbebf]",
+  },
+  {
+    name: "cyan",
+    outer: "border-cyan-300 border-l-0 border-r-0 bg-slate-950",
+    middle: "border-cyan-600 border-t-2 border-b-2",
+    inner: "border-white border-t-0 border-b-0",
+    shadow:
+      "shadow-[0_0_80px_rgba(34,211,238,0.6),0_0_40px_#000000] dark:shadow-[0_0_18px_#ffffff,0_0_90px_#22d3ee]",
+  },
+
+  {
+    name: "pink",
+    outer: "border-pink-300 border-l-0 border-r-0 bg-slate-950",
+    middle: "border-pink-600 border-t-2 border-b-2",
+    inner: "border-white border-t-0 border-b-0",
+    shadow:
+      "shadow-[0_0_80px_rgba(236,72,153,0.6),0_0_40px_#000000] dark:shadow-[0_0_18px_#ffffff,0_0_90px_#ec4899]",
+  },
+
+  {
+    name: "amber",
+    outer: "border-amber-300 border-l-0 border-r-0 bg-slate-950",
+    middle: "border-amber-600 border-t-2 border-b-2",
+    inner: "border-white border-t-0 border-b-0",
+    shadow:
+      "shadow-[0_0_80px_rgba(251,191,36,0.6),0_0_40px_#000000] dark:shadow-[0_0_18px_#ffffff,0_0_90px_#f8f2d3]",
+  },
+];
+
 export default function Home() {
+  const [ring, setRing] = useState(0);
+  const handleImageProfileClick = () => {
+    if (ring === ringStyles.length - 1) {
+      setRing(0);
+      return;
+    }
+    setRing((prev) => prev + 1);
+  };
+
   return (
     <Section className="md:min-h-[90vh] md:flex items-center">
       <div className="space-y-6">
         <div className="flex flex-col gap-2 md:gap-0 md:flex-row-reverse">
-          <div className="flex-1 flex justify-center items-center relative overflow-visible active:scale-110 cursor-pointer transition-all duration-200">
-            <div className="w-56 h-56 md:w-70 md:h-70 rounded-full border-8 border-purple-300 animate-spin hover:animate-none bg-slate-950 border-l-0 border-r-0  rotate-12 shadow-[0_0_10px_#000000,0_0_80px_#650192,0_0_40px_#000000] dark:shadow-[0_0_20px_#ffffff,0_0_90px_#8f2cff] ">
-              <div className="w-full h-full rounded-full border-8 border-purple-600 border-t-2 border-b-2 rotate-45">
-                <div className="w-full h-full rounded-full border-8 border-white border-t-0 border-b-0 rotate-6" />
+          <div
+            onClick={handleImageProfileClick}
+            className="flex-1 flex justify-center items-center relative overflow-visible active:scale-110 cursor-pointer transition-all duration-50"
+          >
+            <div
+              className={cn(
+                "w-56 h-56 md:w-70 md:h-70 rounded-full border-8 bg-slate-950",
+                "animate-spin rotate-12 transition-all duration-1000",
+                ringStyles[ring].outer,
+                ringStyles[ring].shadow,
+              )}
+            >
+              <div
+                className={cn(
+                  "w-full h-full rounded-full border-8 rotate-45 transition-all duration-1000",
+                  ringStyles[ring].middle,
+                )}
+              >
+                <div
+                  className={cn(
+                    "w-full h-full rounded-full border-8 rotate-6 transition-all duration-1000",
+                    ringStyles[ring].inner,
+                  )}
+                />
               </div>
             </div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-4 overflow-hidden rounded-full w-52 h-52 md:w-64 md:h-64 mx-auto flex items-center justify-center">
