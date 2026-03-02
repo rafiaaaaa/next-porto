@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Download } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { useState } from "react";
 
 const techStacks = [
@@ -151,6 +152,7 @@ const ringStyles = [
 export default function Home() {
   const [ring, setRing] = useState(0);
   const handleImageProfileClick = () => {
+    posthog.capture("profile_image_clicked");
     if (ring === ringStyles.length - 1) {
       setRing(0);
       return;
@@ -282,6 +284,9 @@ export default function Home() {
               <Link
                 href={"https://www.linkedin.com/in/rafia24"}
                 target="_blank"
+                onClick={() => {
+                  posthog.capture("linkedin_clicked");
+                }}
               >
                 <Button
                   variant={"default"}
@@ -296,7 +301,15 @@ export default function Home() {
                   Connect on LinkedIn
                 </Button>
               </Link>
-              <a href="/assets/cv/cv_rafi_english.pdf" download>
+              <a
+                href="/assets/cv/cv_rafi_english.pdf"
+                onClick={() => {
+                  posthog.capture("cv_download_clicked", {
+                    file: "cv_rafi_english.pdf",
+                  });
+                }}
+                download
+              >
                 <Button className="bg-emerald-500 text-xs md:text-sm font-bold md:font-semibold text-white shadow-lg shadow-emerald-400/30 hover:shadow-emerald-400/70 hover:scale-105 cursor-pointer">
                   <Download className="h-4 w-4" />
                   Download CV
