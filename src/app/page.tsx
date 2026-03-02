@@ -242,7 +242,20 @@ export default function Home() {
                 );
               })}
             </div>
-            <div className="relative">
+            <div className="relative overflow-hidden">
+              {/* LEFT FADE */}
+              <div
+                className="pointer-events-none absolute left-0 top-0 h-full w-14 z-10
+  bg-linear-to-r from-background via-background/80 to-transparent"
+              />
+
+              {/* RIGHT FADE */}
+              <div
+                className="pointer-events-none absolute right-0 top-0 h-full w-14 z-10
+  bg-linear-to-l from-background via-background/80 to-transparent"
+              />
+
+              {/* CAROUSEL */}
               <div className="carousel md:hidden">
                 <div className="track w-max">
                   <div className="flex gap-4">
@@ -250,7 +263,9 @@ export default function Home() {
                       return (
                         <div key={index} className="flex items-center">
                           <Image
-                            className="block object-contain w-auto p-2 drop-shadow-[0_0px_12px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_0px_1.5px_rgba(255,255,255,1)]"
+                            className="block object-contain w-auto p-2 
+                           drop-shadow-[0_0px_2px_rgba(0,0,0,0.5)] 
+                           dark:drop-shadow-[0_0px_1.5px_rgba(255,255,255,1)]"
                             alt={stack.name}
                             src={`/assets/tech-stacks/${stack.icon}`}
                             width={48}
